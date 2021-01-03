@@ -1,0 +1,649 @@
+/* Group 1 */
+body{
+    position: absolute;
+    width: 1920.5px;
+    height: 2379px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Rectangle 10 */
+.navbar{
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+
+    background: #31726E;
+}
+
+
+/* Home */
+.home_icon
+{
+position: absolute;
+width: 128px;
+height: 76px;
+
+font-family: Baloo;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 76px;
+
+/* identical to box height */
+
+color: #FFF6C4;
+}
+
+
+/* Rectangle 11 */
+.search_bar{
+position: absolute;
+width: 1044px;
+height: 75px;
+
+background: #81B5B1;
+border-radius: 100px;
+}
+
+/* Rectangle 12 */
+.filter{
+position: absolute;
+width: 235px;
+height: 76px;
+
+background: #81B5B1;
+border-radius: 100px;
+}
+
+/* 002-magnifier 3 */
+.magnify_icon{
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(002-magnifier.png);
+}
+
+/* 001-down-arrow-of-angle 3 */
+.down_arrow{
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(001-down-arrow-of-angle.png);
+}
+
+/* FILTER */
+.filter_dropdown{
+position: absolute;
+width: 109px;
+height: 57px;
+
+font-family: Baloo;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 57px;
+/* identical to box height */
+
+color: #000000;
+}
+
+
+/* Search... */
+.search_font{
+position: absolute;
+width: 92px;
+height: 38px;
+
+font-family: Baloo;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 38px;
+/* identical to box height */
+
+color: rgba(0, 0, 0, 0.65);
+}
+
+
+/* Rectangle 13 */
+.bg_color{
+position: absolute;
+width: 1920px;
+height: 2379px;
+
+background: #194E4A;
+}
+
+/* Rectangle 14 */
+.navbar_color{
+position: absolute;
+width: 1920px;
+height: 100px;
+
+background: #31726E;
+}
+
+/* Home */
+.home_space{
+position: absolute;
+width: 128px;
+height: 76px;
+
+font-family: Baloo;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 76px;
+/* identical to box height */
+
+color: #FFF6C4;
+
+}
+
+/* round-account-button-with-user-inside2 2 */
+.accoung_pic{
+position: absolute;
+width: 48.17px;
+height: 50px;
+
+background: url(round-account-button-with-user-inside2.png);
+}
+
+/* Rectangle 15 */
+.searchbar_bgcolor{
+position: absolute;
+width: 1044px;
+height: 75px;
+
+background: #81B5B1;
+border-radius: 100px;
+}
+
+/* Rectangle 16 */
+.filter_bgcolor{
+position: absolute;
+width: 235px;
+height: 76px;
+
+background: #81B5B1;
+border-radius: 100px;
+}
+
+/* 002-magnifier 4 */
+.mag
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(002-magnifier.png);
+
+
+/* 001-down-arrow-of-angle 4 */
+
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(001-down-arrow-of-angle.png);
+
+
+/* FILTER */
+
+position: absolute;
+width: 109px;
+height: 57px;
+
+font-family: Baloo;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 57px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Search... */
+
+position: absolute;
+width: 138px;
+height: 57px;
+
+font-family: Baloo;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 57px;
+/* identical to box height */
+
+color: rgba(0, 0, 0, 0.65);
+
+
+
+/* log-out2 2 */
+
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(log-out2.png);
+
+
+/* Rectangle 17 */
+
+position: absolute;
+width: 1397px;
+height: 2279px;
+
+background: #FFFFFF;
+
+
+/* dcki9t2-dd6f4d0d-92c3-439b-8c3c-2080cc9f29af 3 */
+
+position: absolute;
+width: 800px;
+height: 609px;
+
+background: url(dcki9t2-dd6f4d0d-92c3-439b-8c3c-2080cc9f29af.jpg);
+border-radius: 20px;
+
+
+/* chat 1 */
+
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(chat.png);
+
+
+/* like 1 */
+
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(like.png);
+
+
+/* 0 LIKES */
+
+position: absolute;
+width: 82px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+
+/* 2 COMMENTS */
+
+position: absolute;
+width: 153px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+
+/* round-account-button-with-user-inside 3 */
+
+position: absolute;
+width: 75px;
+height: 75px;
+
+background: url(round-account-button-with-user-inside.png);
+
+
+/* round-account-button-with-user-inside 4 */
+
+position: absolute;
+width: 75px;
+height: 75px;
+
+background: url(round-account-button-with-user-inside.png);
+
+
+/* USERNAME */
+
+position: absolute;
+width: 126px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+
+/* The Shining Red Wolf */
+
+position: absolute;
+width: 348px;
+height: 42px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 42px;
+
+color: #000000;
+
+
+
+/* 001-tag 1 */
+
+position: absolute;
+width: 50px;
+height: 50px;
+
+background: url(001-tag.png);
+
+
+/* By */
+
+position: absolute;
+width: 28px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+
+/* ANIMAL */
+
+position: absolute;
+width: 90px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+
+/* Rectangle 18 */
+
+position: absolute;
+width: 1253px;
+height: 366px;
+
+background: #FFFFFF;
+
+
+/* Published : Dec 09, 2020 */
+
+position: absolute;
+width: 328px;
+height: 35px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+
+color: #000000;
+
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra enim sit amet pellentesque pretium. Etiam pharetra diam a metus congue ultrices. In vehicula dapibus pulvinar. Donec imperdiet odio at ullamcorper rhoncus. Curabitur pulvinar, magna eu tempus scelerisque, tellus tellus gravida risus, in facilisis quam augue id dui. Curabitur vel tempus ipsum. Curabitur mattis dapibus efficitur. Proin non odio ultricies, posuere elit vel, pellentesque libero. Maecenas in euismod arcu. Aliquam sollicitudin nibh vel lacinia placerat. Aliquam id porta lectus, et porttitor mi. Donec ultrices eros vel arcu tristique, venenatis tristique felis tempus. Etiam eget porttitor dui. Quisque eu magna orci. Praesent ultricies egestas cursus. */
+
+position: absolute;
+width: 1185px;
+height: 401px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+
+color: #000000;
+
+
+
+/* Comment */
+
+position: absolute;
+width: 211px;
+height: 56px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 48px;
+line-height: 56px;
+
+color: #000000;
+
+
+
+/* Rectangle 19 */
+
+position: absolute;
+width: 1150px;
+height: 100px;
+
+background: #EBEBEB;
+
+
+/* round-account-button-with-user-inside 5 */
+
+position: absolute;
+width: 75px;
+height: 75px;
+
+background: url(round-account-button-with-user-inside.png);
+
+
+/* Rectangle 20 */
+
+position: absolute;
+width: 1150px;
+height: 100px;
+
+background: #EBEBEB;
+
+
+/* Amazing art!, great job. */
+
+position: absolute;
+width: 371px;
+height: 42px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 42px;
+
+color: #000000;
+
+
+
+/* Love this picture! */
+
+position: absolute;
+width: 273px;
+height: 42px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 42px;
+
+color: #000000;
+
+
+
+/* Rectangle 21 */
+
+position: absolute;
+width: 1253px;
+height: 150px;
+
+background: #EBEBEB;
+
+
+/* Rectangle 22 */
+
+position: absolute;
+width: 210px;
+height: 50px;
+
+background: #31726E;
+
+
+/* Rectangle 23 */
+
+position: absolute;
+width: 210px;
+height: 50px;
+
+background: #31726E;
+
+
+/* COMMENT */
+
+position: absolute;
+width: 179px;
+height: 42px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 42px;
+
+color: #FFFFFF;
+
+
+
+/* CANCEL */
+
+position: absolute;
+width: 136px;
+height: 42px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 42px;
+
+color: #FFFFFF;
+
+
+
+/* Write your comment here... */
+
+position: absolute;
+width: 432px;
+height: 42px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 42px;
+
+color: #8F8F8F;
+
+
+
+/* USERNAME */
+
+position: absolute;
+width: 149px;
+height: 33px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 28px;
+line-height: 33px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* USERNAME */
+
+position: absolute;
+width: 149px;
+height: 33px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 28px;
+line-height: 33px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Dec 10, 2020 */
+
+position: absolute;
+width: 139px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+
+/* Dec 10, 2020 */
+
+position: absolute;
+width: 139px;
+height: 28px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
