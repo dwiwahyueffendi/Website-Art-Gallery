@@ -1,6 +1,15 @@
 <?php
-    require 'proses-data.php';
+    //Memulai session
+    session_start();
 
+    //Cek apakah user sudah login atau belum
+    if(isset($_SESSION['login']))
+    {
+        header("Location: userArt.php");
+        exit;
+    }
+
+    require 'proses-data.php';
     if( isset($_POST['register']) )
     {
         if( registrasi($_POST) > 0 )

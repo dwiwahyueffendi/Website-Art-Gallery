@@ -1,4 +1,14 @@
 <?php
+    //Memulai session
+    session_start();
+
+    //Cek apakah user sudah login atau belum
+    if(isset($_SESSION['login']))
+    {
+        header("Location: userArt.php");
+        exit;
+    }
+
     include "proses-data.php";
     if(isset($_POST['login']))
     {
@@ -14,6 +24,10 @@
             $row = mysqli_fetch_assoc($result);
             if(password_verify($password, $row["PASSWORD"]))
             {
+                //Set session login menjadi true
+                $_SESSION['login'] = true;
+
+                //Melempar user ke halaman lain
                 header("Location: index.php");
                 exit;
             }

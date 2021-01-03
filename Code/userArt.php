@@ -1,3 +1,14 @@
+<?php
+  session_start();
+
+  //Cek apakah user sudah login atau belum
+  if(!isset($_SESSION['login']))
+  {
+    header("Location: login.php");
+    exit;
+  }
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -119,7 +130,7 @@
         </li>
 
         <li class="nav-item up">
-          <a href="">
+          <a href="logout.php">
             <img src="Image/icon/logout.png" width="25">
           </a>
         </li>
