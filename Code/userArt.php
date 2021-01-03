@@ -9,6 +9,7 @@
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
       }
       #nav1{
+        margin-left: -10px;
         background-color: #31726E;
       }
       .container-fluid{
@@ -58,6 +59,24 @@
         width: 950px;
         height: 1600px;
         background-color: #FFFFFF;
+      }
+
+      /*============================================*/
+
+      .one-whole{
+        width: 1100px;
+        margin-left: -10px;
+        //border: solid red 4px;
+        
+      }
+
+      .resizeImage{
+        height: 300px;
+        width: 200px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        border: solid black 2px;
       }
     </style>
 </head>
@@ -110,8 +129,28 @@
   </div>
 </nav>
 
-<div class="box">
-  <h1 style="font-style: baloo;">hii saya wahyu</h1>
+<!-- ************************* -->
+<br><br><br><br>
+<div class="container">
+	<div class="one-whole text-center">       
+      <hr style="border:solid black 4px;margin-top:0px;">
+			<?php  
+				include "conn.php";
+
+				$sql = "SELECT * FROM post";
+				$num_rows = mysqli_num_rows(mysqli_query($conn,$sql));		
+				####### Fetch Results From Table ########
+
+				$result = mysqli_query($conn,$sql);
+				while($row = mysqli_fetch_array($result)){
+          $mygambar=$row['GAMBAR'];
+          "<div><p>Hi</p></div>"
+			?>	
+
+			<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+			<?php } ?>				
+			</p>	
+	</div>			
 </div>
     
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

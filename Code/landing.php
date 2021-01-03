@@ -94,7 +94,7 @@
             <p>Design Art Idea</p>
             <button id="joinUs">Join Us</button>
         </div>
-        <img id="landing" src="Image/img/landingPage.PNG">
+        <img id="landing" src="Image/img/landing.PNG">
 
         <script src="bootstrap/js/jquery-3.5.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
