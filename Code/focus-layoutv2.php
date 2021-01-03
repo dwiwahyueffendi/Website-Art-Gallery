@@ -16,7 +16,7 @@
       
     </style>
 </head>
-<body>
+<body class="bgFocus">
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand baloo def_color" href="#">Home</a>
@@ -66,19 +66,18 @@
 </nav>
 
 <!-- ************************* -->
-
-<div class="container" style="margin-top:64px">
-	<div class="one-whole">       
-      <!-- <hr style="border:solid black 4px;margin-top:0px;"> -->
-      <h1 class="padding-large text-center baloo" style="font-size:30px">Submit Your Art</h1>
-      <br>
-      <?php
-        require('sistem_load/load_form.php');
-      ?>
-			</p>	
-	</div>		
+<div class="" style="margin-top:36px">
+    <div class="container boxFocus">
+        <div class="one-whole">       
+        <!-- <hr style="border:solid black 4px;margin-top:0px;"> -->
+        <br>
+        <?php
+            require('sistem_load/load_focus.php');
+        ?>
+                </p>	
+        </div>		
+    </div>
 </div>
-    
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
@@ -86,3 +85,5 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<!--  -->

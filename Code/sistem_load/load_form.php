@@ -8,7 +8,7 @@
     <br>
     <div class="form-group">
         <Label class="balooBlack" for="Ctl_title">Judul</label>
-        <input id="Ctl_title" class="lightgrey form-control fBaloo" type="text" placeholder="Masukkan Judul Disini...">
+        <input id="Ctl_title" class="lightgrey form-control" type="text" placeholder="Masukkan Judul Disini...">
     </div>
     <br>
     <div class="form-group">
@@ -32,7 +32,7 @@
     </div>
     <br><br>
     <div class="col right" >
-            <button type="button" style="text-align:right" class="btn btn-primary fBaloo base-color">Primary</button>
+            <button type="button" style="text-align:right" class="btn btn-primary fBaloo base-color">Post it!</button>
     </div>
 </form>
 

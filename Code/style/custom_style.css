@@ -5,6 +5,12 @@
   .container-fluid{
     margin-left:150px;
   }
+  .roboto{
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .bold{
+    font-weight: bold;
+  }
   .baloo{
     font-family: Baloo;
     font-size: 24px;
@@ -60,6 +66,12 @@
   }
   .base-color{
     background-color: #31726E;
+  }
+  .bgFocus{
+    background-color: #194E4A;
+  }
+  .boxFocus{
+    background-color: #FFFFFF;
   }
 
   /*============================================*/
