@@ -9,6 +9,18 @@
         $password = mysqli_real_escape_string($conn, $data['r_password']);
         $cpassword = mysqli_real_escape_string($conn, $data['r_confirmPassword']);
 
+        //Cek apakah sudah ada username yang sama
+        $result = mysqli_query($conn, "SELECT username FROM akun WHERE username='$username' ");
+
+        if(mysqli_fetch_assoc($result))
+        {
+             echo "<script>
+                    alert('Username sudah terdaftar!');
+                   </script>";
+                   
+            return false;
+        }
+
         //Cek sesuai atau tidak sesuai antara password dan konfirmasi password
         if( $password !== $cpassword )
         {
@@ -19,8 +31,11 @@
             return false;
         }
 
+
         //Enkripsi Password
         $password = password_hash($password, PASSWORD_DEFAULT);
+        // var_dump($password); die;
+
 
         //Query insert akun baru ke database
         mysqli_query($conn, "INSERT INTO akun VALUES('$username', '$email', '$password')");

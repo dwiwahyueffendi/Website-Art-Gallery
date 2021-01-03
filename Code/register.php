@@ -26,16 +26,16 @@
 <body>
     <form action="" method="post">
         <label for="r_username">Username : </label><br>
-        <input type="username" name="r_username" id="" placeholder="Pick a username"><br>
+        <input type="username" name="r_username" id="" placeholder="Pick a username" required><br>
 
         <label for="r_email">Email : </label><br>
-        <input type="email" name="r_email" id="" placeholder="Add your email"><br>
+        <input type="email" name="r_email" id="" placeholder="Add your email" required><br>
 
         <label for="r_password">Password : </label><br>
-        <input type="password" name="r_password" id="" placeholder="Password"><br>
+        <input type="password" name="r_password" id="" placeholder="Password" required><br>
 
         <label for="r_confirmPassword">Confirm Password : </label><br>
-        <input type="password" name="r_confirmPassword" id="" placeholder="Confirm Password"><br><br>
+        <input type="password" name="r_confirmPassword" id="" placeholder="Confirm Password" required><br><br>
 
         <button type="submit" name="register">Register!</button>
     </form>
