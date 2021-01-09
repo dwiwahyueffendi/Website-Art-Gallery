@@ -1,14 +1,3 @@
-<?php
-  session_start();
-
-  //Cek apakah user sudah login atau belum
-  if(!isset($_SESSION['login']))
-  {
-    header("Location: login.php");
-    exit;
-  }
-?>
-
 <!doctype html>
 <html>
 <head>
@@ -20,7 +9,7 @@
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
       }
       #nav1{
-        margin-left: -10px;
+        margin-left: 0px;
         background-color: #31726E;
       }
       .container-fluid{
@@ -47,7 +36,7 @@
         margin-left: 15px;
       }
       body{
-        background-color: #194E4A;
+        background-color: #FFFFFF;
       }
       .nav-item{
         margin-right: 10px;
@@ -76,9 +65,22 @@
 
       .one-whole{
         width: 1100px;
-        margin-left: -10px;
-        //border: solid red 4px;
-        
+        margin-left: 0px;
+        border: solid red 4px;
+      }
+
+      #username{
+        font-family: Baloo;
+        font-size: 40px;
+        color: #000000;
+      }
+
+      #collection{
+        font-family: Baloo;
+        font-size: 25px;
+        color: #000000;
+        float: left;
+        margin-left: 20px;
       }
 
       .resizeImage{
@@ -87,11 +89,13 @@
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: 10px;
-        border: solid black 2px;
+        border-radius: 20px;
+        border: solid black 0px;
       }
     </style>
 </head>
 <body>
+<!-- Navbar -->
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand baloo" href="#">Home</a>
@@ -124,13 +128,13 @@
         </li>
 
         <li class="nav-item up">
-          <a href="">
+          <a href="#">
             <img src="Image/icon/account.png" width="25">
           </a>
         </li>
 
         <li class="nav-item up">
-          <a href="logout.php">
+          <a href="login.php">
             <img src="Image/icon/logout.png" width="25">
           </a>
         </li>
@@ -140,27 +144,39 @@
   </div>
 </nav>
 
-<!-- ************************* -->
+<!-- Body Container -->
 <br><br><br><br>
+<?php  
+			include "conn.php";
+      $sqlusername = "SELECT * FROM akun where USERNAME = 'dwiwahyu'";
+			$sql = "SELECT * FROM post";
+?>
 <div class="container">
-	<div class="one-whole text-center">       
-      <hr style="border:solid black 4px;margin-top:0px;">
-			<?php  
-				include "conn.php";
+	<div class="one-whole text-center">
+    <!-- Image Account -->
+    <img id="imageaccount" src="Image/icon/accountblack.png" width="150px"><br>
 
-				$sql = "SELECT * FROM post";
-				$num_rows = mysqli_num_rows(mysqli_query($conn,$sql));		
-				####### Fetch Results From Table ########
+    <!-- Username Account -->
+		<?php  
+      $resultusername = mysqli_query($conn,$sqlusername);
+      while($data = mysqli_fetch_array($resultusername)){
+		?>
+    <h1 id="username"><?php echo $data["USERNAME"];}?></h1>
 
-				$result = mysqli_query($conn,$sql);
-				while($row = mysqli_fetch_array($result)){
-          $mygambar=$row['GAMBAR'];
-          "<div><p>Hi</p></div>"
-			?>	
+    <!--My Collection -->
+    <h1 id="collection">My Collection Art</h1><br><br>
 
-			<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-			<?php } ?>				
-			</p>	
+    <!--Image Databas -->
+		<?php  
+			$num_rows = mysqli_num_rows(mysqli_query($conn,$sql));		
+			####### Fetch Results From Table ########
+			$result = mysqli_query($conn,$sql);
+			while($row = mysqli_fetch_array($result)){
+      $mygambar=$row['GAMBAR'];
+		?>	
+		<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+		<?php } ?>				
+		</p>	
 	</div>			
 </div>
     
