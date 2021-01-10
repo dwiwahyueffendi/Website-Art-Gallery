@@ -95,6 +95,14 @@
     </style>
 </head>
 <body>
+
+<?php  
+      include "conn.php";
+      $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
+      $sqlUsername = "SELECT * FROM akun where EMAIL = 'newdwiwahyu@gmail.com'";
+			$sqlPost = "SELECT * FROM post";
+?>
+
 <!-- Navbar -->
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
@@ -118,11 +126,11 @@
               Filter
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item balooBlack1" href="#">Animal</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Anime</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">City</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Nature</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Photography</a></li>
+              <?php if(mysqli_num_rows($sqlCategory)) { ?>
+              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) { ?>
+                <li><a class="dropdown-item balooBlack1" href=".category"><?php echo $row_kat["NAMAKATEGORI"]; ?></a></li>
+              <?php } ?>
+              <?php } ?>
             </ul>
           </div>
         </li>
@@ -134,7 +142,7 @@
         </li>
 
         <li class="nav-item up">
-          <a href="login.php">
+          <a href="logout.php">
             <img src="Image/icon/logout.png" width="25">
           </a>
         </li>
@@ -144,39 +152,24 @@
   </div>
 </nav>
 
-<!-- Body Container -->
-<br><br><br><br>
-<?php  
-			include "conn.php";
-      $sqlusername = "SELECT * FROM akun where USERNAME = 'dwiwahyu'";
-			$sql = "SELECT * FROM post";
-?>
+<!-- Sorting -->
+<div class="category">
 <div class="container">
 	<div class="one-whole text-center">
-    <!-- Image Account -->
-    <img id="imageaccount" src="Image/icon/accountblack.png" width="150px"><br>
+  <?php
+    require('sistem_load/load_catergory.php');
+  ?>	
+	</div>			
+</div>
+</div>
 
-    <!-- Username Account -->
-		<?php  
-      $resultusername = mysqli_query($conn,$sqlusername);
-      while($data = mysqli_fetch_array($resultusername)){
-		?>
-    <h1 id="username"><?php echo $data["USERNAME"];}?></h1>
-
-    <!--My Collection -->
-    <h1 id="collection">My Collection Art</h1><br><br>
-
-    <!--Image Databas -->
-		<?php  
-			$num_rows = mysqli_num_rows(mysqli_query($conn,$sql));		
-			####### Fetch Results From Table ########
-			$result = mysqli_query($conn,$sql);
-			while($row = mysqli_fetch_array($result)){
-      $mygambar=$row['GAMBAR'];
-		?>	
-		<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-		<?php } ?>				
-		</p>	
+<!-- Body Container -->
+<br><br><br><br>
+<div class="container">
+	<div class="one-whole text-center">
+  <?php
+    require('sistem_load/load_galeri.php');
+  ?>	
 	</div>			
 </div>
     
