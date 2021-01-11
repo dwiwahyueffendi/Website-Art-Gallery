@@ -72,6 +72,13 @@
         background-color: #FFFFFF;
       }
 
+      .insertBtn{
+        width: 50px;
+        float: right;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
       /*============================================*/
 
       .one-whole{
@@ -117,7 +124,7 @@
 <!-- Navbar -->
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand baloo" href="home.php">Home</a>
+    <a class="navbar-brand baloo" href="#">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -147,7 +154,7 @@
         </li>
 
         <li class="nav-item up">
-          <a href="#">
+          <a href="userArt.php">
             <img src="Image/icon/account.png" width="25">
           </a>
         </li>
@@ -163,12 +170,19 @@
   </div>
 </nav>
 
+
+<div class="fixed-bottom">
+  <a href="insert-layoutv2.php">
+    <img class="insertBtn" src="Image/icon/insertButton.png">
+  </a>
+</div>
+
 <!-- Body Container -->
 <br><br><br><br>
 <div class="container">
 	<div class="one-whole text-center">
   <?php
-    require('sistem_load/load_galeri.php');
+    require('sistem_load/load_home.php');
   ?>	
 	</div>			
 </div>
