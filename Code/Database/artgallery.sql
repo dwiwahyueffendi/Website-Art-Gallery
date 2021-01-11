@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jan 2021 pada 14.52
+-- Waktu pembuatan: 11 Jan 2021 pada 05.32
 -- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.10
+-- Versi PHP: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `akun` (
   `USERNAME` varchar(30) NOT NULL,
-  `EMAIL` varchar(50) DEFAULT NULL,
-  `PASSWORD` varchar(255) DEFAULT NULL
+  `EMAIL` varchar(50) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -49,7 +49,7 @@ INSERT INTO `akun` (`USERNAME`, `EMAIL`, `PASSWORD`) VALUES
 
 CREATE TABLE `kategori` (
   `IDKATEGORI` int(11) NOT NULL,
-  `NAMAKATEGORI` varchar(30) DEFAULT NULL
+  `NAMAKATEGORI` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -57,11 +57,16 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`IDKATEGORI`, `NAMAKATEGORI`) VALUES
-(1, 'animal'),
-(2, 'anime'),
-(3, 'city'),
-(4, 'nature'),
-(5, 'photography');
+(1, 'Animal'),
+(2, 'Anime'),
+(3, 'City'),
+(4, 'Nature'),
+(5, 'Photography'),
+(6, 'Abstrak'),
+(7, 'Klasisme'),
+(8, 'Romatisme'),
+(9, 'Surealisme'),
+(10, 'Pop');
 
 -- --------------------------------------------------------
 
@@ -71,11 +76,11 @@ INSERT INTO `kategori` (`IDKATEGORI`, `NAMAKATEGORI`) VALUES
 
 CREATE TABLE `komentar` (
   `IDKOMENTAR` int(11) NOT NULL,
-  `ISIKOMENTAR` varchar(255) DEFAULT NULL,
-  `TANGGALKOMENTAR` date DEFAULT NULL,
-  `JAMKOMENTAR` time DEFAULT NULL,
-  `IDPOST` varchar(30) DEFAULT NULL,
-  `USERNAME` varchar(30) DEFAULT NULL
+  `ISIKOMENTAR` varchar(255) NOT NULL,
+  `TANGGALKOMENTAR` date NOT NULL,
+  `JAMKOMENTAR` time NOT NULL,
+  `IDPOST` int(11) NOT NULL,
+  `USERNAME` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -83,8 +88,8 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`IDKOMENTAR`, `ISIKOMENTAR`, `TANGGALKOMENTAR`, `JAMKOMENTAR`, `IDPOST`, `USERNAME`) VALUES
-(1, 'mantapppppp betull', '2020-12-31', '18:11:17', '1', 'dimasrehan'),
-(2, 'amazingggggg', '2020-12-31', '17:11:17', '2', 'dwiwahyu');
+(1, 'mantapppppp betull', '2020-12-31', '18:11:17', 1, 'dimasrehan'),
+(2, 'amazingggggg', '2020-12-31', '17:11:17', 2, 'dwiwahyu');
 
 -- --------------------------------------------------------
 
@@ -93,15 +98,14 @@ INSERT INTO `komentar` (`IDKOMENTAR`, `ISIKOMENTAR`, `TANGGALKOMENTAR`, `JAMKOME
 --
 
 CREATE TABLE `post` (
-  `IDPOST` varchar(30) NOT NULL,
-  `GAMBAR` varchar(255) DEFAULT NULL,
-  `THUMBNAIL` varchar(255)  DEFAULT NULL,
-  `DESKRIPSI` varchar(255) DEFAULT NULL,
-  `TANGGALPOST` date DEFAULT NULL,
-  `JUMLAHLIKE` int(11) DEFAULT NULL,
-  `IDKATEGORI` varchar(30) DEFAULT NULL,
-  `USERNAME` varchar(30) DEFAULT NULL,
-  `TITLE` varchar(50) DEFAULT NULL
+  `IDPOST` int(11) NOT NULL,
+  `GAMBAR` varchar(30) NOT NULL,
+  `DESKRIPSI` varchar(255) NOT NULL,
+  `TANGGALPOST` date NOT NULL,
+  `JUMLAHLIKE` int(11) NOT NULL,
+  `IDKATEGORI` int(11) NOT NULL,
+  `USERNAME` varchar(30) NOT NULL,
+  `TITLE` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -201,19 +205,31 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `IDKATEGORI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `komentar`
---
-ALTER TABLE `komentar`
-  MODIFY `IDKOMENTAR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDKATEGORI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `post`
 --
 ALTER TABLE `post`
   MODIFY `IDPOST` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `komentar`
+--
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`IDPOST`) REFERENCES `post` (`IDPOST`),
+  ADD CONSTRAINT `komentar_ibfk_2` FOREIGN KEY (`USERNAME`) REFERENCES `akun` (`USERNAME`);
+
+--
+-- Ketidakleluasaan untuk tabel `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`IDKATEGORI`) REFERENCES `kategori` (`IDKATEGORI`),
+  ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`USERNAME`) REFERENCES `akun` (`USERNAME`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
