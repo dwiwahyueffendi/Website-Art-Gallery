@@ -25,10 +25,11 @@
             if(password_verify($password, $row["PASSWORD"]))
             {
                 //Set session login menjadi true
+                $_SESSION['username'] = $username;
                 $_SESSION['login'] = true;
 
                 //Melempar user ke halaman lain
-                header("Location: index.php");
+                header("Location: userArt.php");
                 exit;
             }
         }

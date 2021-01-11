@@ -34,9 +34,10 @@
     <script src="bootstrap/js/js/bootstrap.min.js"></script>
 <body>
     <form action="" method="post">
+    <div>
         <label for="r_username">Username : </label><br>
         <input type="username" name="r_username" id="" placeholder="Pick a username" required><br>
-
+    </div>
         <label for="r_email">Email : </label><br>
         <input type="email" name="r_email" id="" placeholder="Add your email" required><br>
 

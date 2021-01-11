@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  $id = $_SESSION['username'];
+?>
 <!doctype html>
 <html>
 <head>
@@ -39,11 +43,14 @@
               Filter
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item balooBlack1" href="#">Animal</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Anime</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">City</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Nature</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Photography</a></li>
+              <?php
+                require('sistem_load/conn.php');
+                $result = mysqli_query($conn, "SELECT * FROM kategori");
+                while($row_nav = mysqli_fetch_array($result)){
+                    // echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
+                    echo "<li><a class='dropdown-item balooBlack1' href='userArt.php?search=". $row_nav['IDKATEGORI'] ."'>". $row_nav['NAMAKATEGORI'] ."</a></li>";
+                }
+              ?>
             </ul>
           </div>
         </li>
@@ -55,7 +62,7 @@
         </li>
 
         <li class="nav-item up">
-          <a href="">
+          <a href="logout.php">
             <img src="Image/icon/logout.png" width="25">
           </a>
         </li>
@@ -72,8 +79,10 @@
       <!-- <hr style="border:solid black 4px;margin-top:0px;"> -->
       <h1 class="padding-large text-center baloo" style="font-size:30px">Submit Your Art</h1>
       <br>
+      <p>
       <?php
         require('sistem_load/load_form.php');
+        require('sistem_load/insertFile.php');
       ?>
 			</p>	
 	</div>		
