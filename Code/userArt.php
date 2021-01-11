@@ -1,14 +1,3 @@
-<?php
-  session_start();
-
-  //Cek apakah user sudah login atau belum
-  if(!isset($_SESSION['login']))
-  {
-    header("Location: login.php");
-    exit;
-  }
-?>
-
 <!doctype html>
 <html>
 <head>
@@ -20,7 +9,7 @@
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
       }
       #nav1{
-        margin-left: -10px;
+        margin-left: 0px;
         background-color: #31726E;
       }
       .container-fluid{
@@ -47,7 +36,7 @@
         margin-left: 15px;
       }
       body{
-        background-color: #194E4A;
+        background-color: #FFFFFF;
       }
       .nav-item{
         margin-right: 10px;
@@ -76,9 +65,22 @@
 
       .one-whole{
         width: 1100px;
-        margin-left: -10px;
-        //border: solid red 4px;
-        
+        margin-left: 0px;
+        border: solid red 4px;
+      }
+
+      #username{
+        font-family: Baloo;
+        font-size: 40px;
+        color: #000000;
+      }
+
+      #collection{
+        font-family: Baloo;
+        font-size: 25px;
+        color: #000000;
+        float: left;
+        margin-left: 20px;
       }
 
       .resizeImage{
@@ -87,11 +89,21 @@
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: 10px;
-        border: solid black 2px;
+        border-radius: 20px;
+        border: solid black 0px;
       }
     </style>
 </head>
 <body>
+
+<?php  
+      include "conn.php";
+      $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
+      $sqlUsername = "SELECT * FROM akun where EMAIL = 'newdwiwahyu@gmail.com'";
+			$sqlPost = "SELECT * FROM post";
+?>
+
+<!-- Navbar -->
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand baloo" href="#">Home</a>
@@ -114,17 +126,17 @@
               Filter
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item balooBlack1" href="#">Animal</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Anime</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">City</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Nature</a></li>
-              <li><a class="dropdown-item balooBlack1" href="#">Photography</a></li>
+              <?php if(mysqli_num_rows($sqlCategory)) { ?>
+              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) { ?>
+                <li><a class="dropdown-item balooBlack1" href=".category"><?php echo $row_kat["NAMAKATEGORI"]; ?></a></li>
+              <?php } ?>
+              <?php } ?>
             </ul>
           </div>
         </li>
 
         <li class="nav-item up">
-          <a href="">
+          <a href="#">
             <img src="Image/icon/account.png" width="25">
           </a>
         </li>
@@ -140,27 +152,24 @@
   </div>
 </nav>
 
-<!-- ************************* -->
+<!-- Sorting -->
+<div class="category">
+<div class="container">
+	<div class="one-whole text-center">
+  <?php
+    require('sistem_load/load_catergory.php');
+  ?>	
+	</div>			
+</div>
+</div>
+
+<!-- Body Container -->
 <br><br><br><br>
 <div class="container">
-	<div class="one-whole text-center">       
-      <hr style="border:solid black 4px;margin-top:0px;">
-			<?php  
-				include "conn.php";
-
-				$sql = "SELECT * FROM post";
-				$num_rows = mysqli_num_rows(mysqli_query($conn,$sql));		
-				####### Fetch Results From Table ########
-
-				$result = mysqli_query($conn,$sql);
-				while($row = mysqli_fetch_array($result)){
-          $mygambar=$row['GAMBAR'];
-          "<div><p>Hi</p></div>"
-			?>	
-
-			<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-			<?php } ?>				
-			</p>	
+	<div class="one-whole text-center">
+  <?php
+    require('sistem_load/load_galeri.php');
+  ?>	
 	</div>			
 </div>
     
