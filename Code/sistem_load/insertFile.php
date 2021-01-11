@@ -11,7 +11,8 @@
         //tmp file url
         $tmpDir = $file['i_file']['tmp_name'];
         //file_url destination 
-        $fileDir= "Image/img/".$imgName."";
+        $fileDir = "Image/img/".$imgName."";
+        $thumbDir = "Image/thumb/". $imgName . "";
         //file size
         $imgSize = $file['i_file']['size'];
         //error information
@@ -51,17 +52,40 @@
             echo "<script>
                     alert('Ukuran File melebihi 15mb!');
                   </script>";
+            return false;
         }
 
         //prepare the query
         $query ="   INSERT INTO
-                        post    (`GAMBAR`,`DESKRIPSI`,`TANGGALPOST`,`JUMLAHLIKE`,`IDKATEGORI`,`USERNAME`,`TITLE`)
-                    VALUES      ('$fileDir','$deskripsi','$date',0,'$genre','$username','$title');
+                        post    (`GAMBAR`,`THUMBNAIL`,`DESKRIPSI`,`TANGGALPOST`,`JUMLAHLIKE`,`IDKATEGORI`,`USERNAME`,`TITLE`)
+                    VALUES      ('$fileDir','$thumbDir','$deskripsi','$date',0,'$genre','$username','$title');
                 ";
 
         //jika berhasil insert ke dalam query maka pindah file ke lokal direktori
         $conn->query($query);
         move_uploaded_file($tmpDir,$fileDir);
+
+        /*======================creating thumbnail===========================*/
+        //get New Size
+        $newwidth = 200;
+        $newheight = 300;
+        // Load
+        $source = imagecreatefromjpeg($filename);
+        // Resize
+        imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        $thumb = imagecrop($im, ['x' => 0, 'y' => 0, 'width' => $newwidth, 'height' => $newheight]); 
+        if ($im2 !== FALSE) { 
+            header("Content-type: image/png"); 
+            //saving to new directory
+            imagejpeg($thumb,$thumbDir);
+            imagedestroy($im2); 
+        } else{
+            echo "<script>
+                    alert('Galat Membuat Thumbnail Otomatis');
+                  </script>";
+            return false;
+        }
+
         return mysqli_affected_rows($conn); //Mengembalikan sebuah value 1 jika berhasil dan -1 jika tidak berhasil
     }
     if( isset($_POST['post_it']) )

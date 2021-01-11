@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  $_SESSION['username']
+?>
 <!doctype html>
 <html>
 <head>
@@ -156,9 +160,7 @@
 <div class="category">
 <div class="container">
 	<div class="one-whole text-center">
-  <?php
-    require('sistem_load/load_catergory.php');
-  ?>	
+  	
 	</div>			
 </div>
 </div>

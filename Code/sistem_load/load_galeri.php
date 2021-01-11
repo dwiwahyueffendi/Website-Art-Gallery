@@ -17,8 +17,9 @@
 			####### Fetch Results From Table ########
 			$result = mysqli_query($conn,$sqlPost);
 			while($row = mysqli_fetch_array($result)){
-      $mygambar=$row['GAMBAR'];
+      $myGambar=$row['GAMBAR'];
+      $myThumb=$row['THUMBNAIL'];
 		?>	
-		<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+		<?php	echo "<a href='$myGambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$myThumb' class='inline-block resizeImage'/></a> ";?>			
 		<?php } ?>				
 		
