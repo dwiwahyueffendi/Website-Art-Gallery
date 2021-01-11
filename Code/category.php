@@ -1,6 +1,12 @@
 <?php
-  session_start();
-  $id = $_SESSION['username'];
+  include "conn.php";
+
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+      if (isset($_GET['NAMAKATEGORI'])) {
+          $choiceCategory = $_GET['NAMAKATEGORI'];
+          $sqlCategory = "SELECT * FROM post WHERE NAMAKATEGORI = '$choiceCategory'";
+      }
+  }
 ?>
 
 <!doctype html>
@@ -66,6 +72,13 @@
         background-color: #FFFFFF;
       }
 
+      .insertBtn{
+        width: 50px;
+        float: right;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
       /*============================================*/
 
       .one-whole{
@@ -102,10 +115,7 @@
 <body>
 
 <?php  
-      include "conn.php";
-      $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
-      $sqlUsername = "SELECT * FROM akun where USERNAME = '$id'";
-			$sqlPost = "SELECT * FROM post where USERNAME = '$id'";
+  $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
 ?>
 
 <!-- Navbar -->
@@ -133,7 +143,17 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <?php if(mysqli_num_rows($sqlCategory)) { ?>
               <?php while($row_kat = mysqli_fetch_array($sqlCategory)) { ?>
-                <li><a class="dropdown-item balooBlack1" href="category.php"><?php echo $row_kat["NAMAKATEGORI"]; ?></a></li>
+                <li>
+                  <a class="dropdown-item balooBlack1" href="category.php">
+                    <?php
+                      //echo $row_kat["NAMAKATEGORI"];
+                      echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
+                      //$namaKategori = $_GET['NAMAKATEGORI'];
+                      //$choiceCategory = 
+                      //$sqlPost1 = "SELECT * FROM post WHERE IDKATEGORI = '$choiceCategory'";
+                    ?>
+                  </a>
+                </li>
               <?php } ?>
               <?php } ?>
             </ul>
@@ -141,7 +161,7 @@
         </li>
 
         <li class="nav-item up">
-          <a href="#">
+          <a href="userArt.php">
             <img src="Image/icon/account.png" width="25">
           </a>
         </li>
@@ -157,12 +177,31 @@
   </div>
 </nav>
 
+<!-- Button Insert -->
+<div class="fixed-bottom">
+  <a href="insert-layoutv2.php">
+    <img class="insertBtn" src="Image/icon/insertButton.png">
+  </a>
+</div>
+
 <!-- Body Container -->
 <br><br><br><br>
 <div class="container">
 	<div class="one-whole text-center">
   <?php
-    require('sistem_load/load_galeri.php');
+  if ($sqlCategory === FALSE) {
+      die(mysqli_error());
+  }
+
+    $num_rows = mysqli_num_rows(mysqli_query($conn,$sqlCategory));		
+    ####### Fetch Results From Table ########
+    $result = mysqli_query($conn,$sqlCategory);
+    while($row = mysqli_fetch_array($result)){
+    $mygambar=$row['GAMBAR'];
+    ?>	
+    <?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+    <?php }
+
   ?>	
 	</div>			
 </div>
