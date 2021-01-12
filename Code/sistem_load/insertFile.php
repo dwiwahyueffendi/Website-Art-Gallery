@@ -12,7 +12,7 @@
         $tmpDir = $file['i_file']['tmp_name'];
         //file_url destination 
         $fileDir = "Image/img/".$imgName."";
-        $thumbDir = "Image/thumb/". $imgName . "";
+        // $thumbDir = "Image/thumb/". $imgName . "";
         //file size
         $imgSize = $file['i_file']['size'];
         //error information
@@ -57,34 +57,35 @@
 
         //prepare the query
         $query ="   INSERT INTO
-                        post    (`GAMBAR`,`THUMBNAIL`,`DESKRIPSI`,`TANGGALPOST`,`JUMLAHLIKE`,`IDKATEGORI`,`USERNAME`,`TITLE`)
-                    VALUES      ('$fileDir','$thumbDir','$deskripsi','$date',0,'$genre','$username','$title');
+                        post    (`GAMBAR`,`DESKRIPSI`,`TANGGALPOST`,`JUMLAHLIKE`,`IDKATEGORI`,`USERNAME`,`TITLE`)
+                    VALUES      ('$fileDir','$deskripsi','$date',0,'$genre','$username','$title');
                 ";
 
-        //jika berhasil insert ke dalam query maka pindah file ke lokal direktori
+        
         $conn->query($query);
+        //jika berhasil insert ke dalam query maka pindah file ke lokal direktori
         move_uploaded_file($tmpDir,$fileDir);
 
-        /*======================creating thumbnail===========================*/
-        //get New Size
-        $newwidth = 200;
-        $newheight = 300;
-        // Load
-        $source = imagecreatefromjpeg($filename);
-        // Resize
-        imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-        $thumb = imagecrop($im, ['x' => 0, 'y' => 0, 'width' => $newwidth, 'height' => $newheight]); 
-        if ($im2 !== FALSE) { 
-            header("Content-type: image/png"); 
-            //saving to new directory
-            imagejpeg($thumb,$thumbDir);
-            imagedestroy($im2); 
-        } else{
-            echo "<script>
-                    alert('Galat Membuat Thumbnail Otomatis');
-                  </script>";
-            return false;
-        }
+        // /*======================creating thumbnail===========================*/
+        // //get New Size
+        // $newwidth = 200;
+        // $newheight = 300;
+        // // Load
+        // $source = imagecreatefromjpeg($fileDir);
+        // // Resize
+        // $thumb = imagecrop($source, ['x' => 0, 'y' => 0, 'width' => $newwidth, 'height' => $newheight]); 
+        // if ($thumb !== FALSE) { 
+        //     //saving to new directory
+        //     imagejpeg($thumb,$thumbDir);
+        //     imagedestroy($thumb); 
+        // } else{
+        //     echo "<script>
+        //             alert('Galat Membuat Thumbnail Otomatis');
+        //           </script>";
+        //     return false;
+        // }
+
+        
 
         return mysqli_affected_rows($conn); //Mengembalikan sebuah value 1 jika berhasil dan -1 jika tidak berhasil
     }
