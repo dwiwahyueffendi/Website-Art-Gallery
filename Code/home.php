@@ -117,7 +117,6 @@
 <?php  
       include "conn.php";
       $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
-      $sqlUsername = "SELECT * FROM akun where EMAIL = 'newdwiwahyu@gmail.com'";
 			$sqlPost = "SELECT * FROM post";
 ?>
 
@@ -133,8 +132,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <form class="d-flex">
-            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search">
-            <button class="btn btn-outline-success lebar1 round balooBlack" type="submit">Search</button>
+            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search" name="cariTitle">
+            <button class="btn btn-outline-success lebar1 round balooBlack" type="submit" value="cariTitle">Search</button>
           </form>
         </li>
 
@@ -145,8 +144,17 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <?php if(mysqli_num_rows($sqlCategory)) { ?>
-              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) { ?>
-                <li><a class="dropdown-item balooBlack1" href=".category"><?php echo $row_kat["NAMAKATEGORI"]; ?></a></li>
+              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) {?>
+                <li>
+                  <a class="dropdown-item balooBlack1" href="<?php echo "category.php?NAMAKATEGORI=".$row_kat['NAMAKATEGORI']; ?>">
+                    <?php
+                      //echo $row_kat["NAMAKATEGORI"];
+                      echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
+                      //$namaKategori = $_GET['NAMAKATEGORI'];
+                      //$sqlPost1 = "SELECT * FROM post WHERE NAMAKATEGORI = '$namaKategori'";
+                    ?>
+                  </a>                 
+                </li>
               <?php } ?>
               <?php } ?>
             </ul>
@@ -170,7 +178,7 @@
   </div>
 </nav>
 
-
+<!-- Button Insert -->
 <div class="fixed-bottom">
   <a href="insert-layoutv2.php">
     <img class="insertBtn" src="Image/icon/insertButton.png">
@@ -186,7 +194,8 @@
   ?>	
 	</div>			
 </div>
-    
+  
+<script src="bootstrap/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
