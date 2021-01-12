@@ -1,0 +1,113 @@
+@font-face
+{
+    font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
+    src: url('../Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
+}
+@font-face
+{
+    font-family: 'Share Tech'; /*memberikan nama bebas untuk font*/
+    src: url('../Font/ShareTech/ShareTech-Regular.ttf');/*memanggil file font eksternalnya di folder Baloo*/
+}
+@font-face
+{
+    font-family: 'Varta'; /*memberikan nama bebas untuk font*/
+    src: url('../Font/Varta/Varta.ttf');/*memanggil file font eksternalnya di folder Baloo*/
+}
+@font-face
+{
+    font-family: 'Monda'; /*memberikan nama bebas untuk font*/
+    src: url('../Font/Monda/Monda-Regular.ttf');/*memanggil file font eksternalnya di folder Baloo*/
+}
+
+.image-LogReg
+{
+    height:900px; 
+    background-image: url(../Image/img/2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-left: 20px;
+}
+
+.namaWebsite
+{
+    margin-top: 30px;
+    font-family: Baloo;
+    font-size: 48px;
+    color: black;
+}
+
+.sloganWebsite
+{
+    width: 347px;
+    height: 360px;
+    margin-top: 80px;
+    font-family: Share Tech;
+    font-size: 64px ;
+    color: #E8E6DD;
+    line-height: normal;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.quoteWebsite
+{
+    font-family: Share Tech;
+    font-size: 22px ;
+    color: #E8E6DD;
+    margin-top: 50px;
+}
+
+.side-LogReg
+{
+    background-color: #31726E;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.LogReg
+{
+    margin-top: 80px;
+    margin-bottom: -10px;
+    font-family: Baloo;
+    font-size: 72px;
+    color: black;
+}
+
+.question-LogReg
+{
+    font-family: Varta;
+    font-size: 24px;
+}
+
+.input-LogReg
+{
+    border-radius: 0px;
+    height: 80px;
+    font-family: Varta;
+    font-size: 24px;
+}
+
+.button-LogReg
+{
+    height: 60px;
+    width: 182px;
+    font-family: Monda;
+    font-size: 24px;
+    border: 0px none;
+    border-radius: 0px;
+    background-color: #4DB8B1;
+}
+
+.form-LogReg
+{
+    margin-top: 100px;
+}
+
+.agreement-LogReg
+{
+    font-family: Share Tech;
+    font-size: 22px;
+    color: #E2E2E2;
+    margin-top: 50px;
+}
