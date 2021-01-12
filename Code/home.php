@@ -119,7 +119,7 @@
 <?php  
       include "conn.php";
       $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
-			$sqlPost = "SELECT * FROM post";
+			$sqlPost = "SELECT * FROM post ORDER BY IDKATEGORI DESC";
 ?>
 
 <!-- Navbar -->
@@ -145,7 +145,7 @@
 
                 $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";				
             }else{
-                $sqlPost = "SELECT * FROM post";	
+                $sqlPost = "SELECT * FROM post ORDER BY IDKATEGORI DESC";	
             }
         ?>
 
@@ -173,10 +173,10 @@
                   ?>
                 </div> -->
 
-                  <div class="dropdown-item balooBlack1">
+                  <div class="dropdown-item">
                     <?php
                       //echo $row_kat["NAMAKATEGORI"];
-                      echo"<a href='category.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
+                      echo"<a class='balooBlack1' href='category.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
                       //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
                     ?>
                   </div>            
