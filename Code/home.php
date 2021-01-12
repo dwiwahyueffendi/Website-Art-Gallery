@@ -139,6 +139,16 @@
           </form>
         </li>
 
+        <?php 
+            if(isset($_GET['cariTitle'])){
+                $cari = $_GET['cariTitle'];
+
+                $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";				
+            }else{
+                $sqlPost = "SELECT * FROM post";	
+            }
+        ?>
+
         <li class="nav-item">
           <div class="dropdown">
             <button class="btn btn-outline-success dropdown-toggle lebar1 round balooBlack" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
