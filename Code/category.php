@@ -1,12 +1,12 @@
 <?php
   include "conn.php";
-
-  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  $idCategory=$_REQUEST['categoryid'];
+  /*if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       if (isset($_GET['NAMAKATEGORI'])) {
           $choiceCategory = $_GET['NAMAKATEGORI'];
           $sqlCategory = "SELECT * FROM post WHERE NAMAKATEGORI = '$choiceCategory'";
       }
-  }
+  }*/
 ?>
 
 <!doctype html>
@@ -142,9 +142,12 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <?php if(mysqli_num_rows($sqlCategory)) { ?>
-              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) { ?>
+              <?php
+                while($row_kat = mysqli_fetch_array($sqlCategory)) {
+                  $id=$row_kat['IDKATEGORI'];
+              ?>
                 <li>
-                  <a class="dropdown-item balooBlack1" href="category.php">
+                  <a class="dropdown-item balooBlack1" href="sistem_load/load_category.php?categoryid=$id">
                     <?php
                       //echo $row_kat["NAMAKATEGORI"];
                       echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
@@ -189,20 +192,17 @@
 <div class="container">
 	<div class="one-whole text-center">
   <?php
-  if ($sqlCategory === FALSE) {
-      die(mysqli_error());
-  }
+      $sqlDropdown = mysqli_query($conn, "SELECT * FROM post WHERE IDKATEGORI = '$idCategory'");
 
-    $num_rows = mysqli_num_rows(mysqli_query($conn,$sqlCategory));		
-    ####### Fetch Results From Table ########
-    $result = mysqli_query($conn,$sqlCategory);
-    while($row = mysqli_fetch_array($result)){
-    $mygambar=$row['GAMBAR'];
-    ?>	
-    <?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-    <?php }
-
+      global $conn;
+			$num_rows1 = mysqli_num_rows($sqlDropdown);		
+			####### Fetch Results From Table ########
+			while($row = mysqli_fetch_array($sqlDropdown)){
+      $mygambar=$row['GAMBAR'];
   ?>	
+    
+  <?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+  <?php } ?>	
 	</div>			
 </div>
     

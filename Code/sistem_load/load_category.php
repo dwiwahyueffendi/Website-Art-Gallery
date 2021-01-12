@@ -1,6 +1,8 @@
 <!--Image Databas -->
 <?php
-    if ($sqlCategory === FALSE) {
+  	$idCategory=$_REQUEST['categoryid'];
+	
+	if ($sqlCategory === FALSE) {
         die(mysqli_error());
     }
 

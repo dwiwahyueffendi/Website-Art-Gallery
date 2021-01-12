@@ -1,6 +1,7 @@
 <?php
     /*========================Prep===============================*/
-    $id_post = 1;  //idpsot dari $_GET['id_post']
+    $id_post=$_REQUEST['postid'];
+    //$id_post = 1;  //idpsot dari $_GET['id_post']
 
     require('conn.php'); //opening connection
     $prep_query = " SELECT 

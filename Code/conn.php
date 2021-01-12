@@ -4,7 +4,7 @@
 	   $dbUser = 'root';
 	   $dbPass = '';
 	   $dbName = "artgallery";
-
+	
 	   $conn = mysqli_connect($dbServer, $dbUser, $dbPass, $dbName);
 
 	   mysqli_select_db($conn,$dbName);

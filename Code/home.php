@@ -42,8 +42,10 @@
       .balooBlack1{
         font-family: Baloo;
         font-size: 16px;
+        font-color: #000000;
         padding: 0px;
         color: #000000!important;
+        text-decoration:none;
         margin-left: 15px;
       }
       body{
@@ -144,16 +146,30 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <?php if(mysqli_num_rows($sqlCategory)) { ?>
-              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) {?>
+              <?php
+                $idCategory = 0;
+                while($row_kat = mysqli_fetch_array($sqlCategory)) {
+                  $idCategory++;
+                  //$id=$row_kat['IDKATEGORI'];
+              ?>
                 <li>
-                  <a class="dropdown-item balooBlack1" href="<?php echo "category.php?NAMAKATEGORI=".$row_kat['NAMAKATEGORI']; ?>">
+                <!--
+                <div class="dropdown-item balooBlack1">
+                  <?php
+                    //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
+                  ?>
+                  <?php
+                    //echo"<a href='category.php?categoryid=$idCategory'></a>"
+                  ?>
+                </div> -->
+
+                  <div class="dropdown-item balooBlack1">
                     <?php
                       //echo $row_kat["NAMAKATEGORI"];
-                      echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
-                      //$namaKategori = $_GET['NAMAKATEGORI'];
-                      //$sqlPost1 = "SELECT * FROM post WHERE NAMAKATEGORI = '$namaKategori'";
+                      echo"<a href='category.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
+                      //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
                     ?>
-                  </a>                 
+                  </div>            
                 </li>
               <?php } ?>
               <?php } ?>
