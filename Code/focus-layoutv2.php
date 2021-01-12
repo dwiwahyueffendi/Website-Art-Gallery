@@ -13,7 +13,6 @@
         font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
       }
-      
     </style>
 </head>
 <body class="bgFocus">
@@ -67,14 +66,13 @@
 
 <!-- ************************* -->
 <div class="" style="margin-top:36px">
-    <div class="container boxFocus">
+    <div class="container boxFocus" style=>
         <div class="one-whole">       
         <!-- <hr style="border:solid black 4px;margin-top:0px;"> -->
         <br>
-        <?php
-            require('sistem_load/load_focus.php');
-        ?>
-                </p>	
+          <?php
+              require('sistem_load/load_focus.php');
+          ?>
         </div>		
     </div>
 </div>
