@@ -16,6 +16,34 @@
       $id_post=$row['IDPOST'];
       $mygambar=$row['GAMBAR'];
 		?>	
-		<?php	echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-		<?php } ?>				
-		
+    <div class="litebox resizeImage" style="display: inline-block;">
+      <a href='focus-layoutv2.php?postid=<?php echo $id_post;?>' target="_self" data-litebox-group='group-1' style="text-decoration: none;">
+        <img src='<?php echo $mygambar; ?>' class='resizeImage'/>
+      </a>
+      <?php
+        if(isset($_REQUEST['username']))
+        {
+          if($id == $_SESSION['username'])
+          {
+      ?>
+            <a href="updatePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Edit</button></a>
+            <a href="deletePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Delete</button></a>
+      <?php
+          }
+          else
+          {
+      ?>
+            <style>
+              .tombol
+              {
+                visibility: hidden;
+              }
+            </style>
+            <a href="updatePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Edit</button></a>
+            <a href="deletePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Delete</button></a>
+      <?php      
+          }
+        }
+      ?>
+    </div>
+		<?php } ?>

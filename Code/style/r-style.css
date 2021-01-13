@@ -19,6 +19,7 @@
     src: url('../Font/Monda/Monda-Regular.ttf');/*memanggil file font eksternalnya di folder Baloo*/
 }
 
+/*CSS Login dan Register Page*/
 .image-LogReg
 {
     height:900px; 
