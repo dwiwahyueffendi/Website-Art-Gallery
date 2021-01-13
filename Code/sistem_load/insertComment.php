@@ -21,8 +21,6 @@
                         komentar(`ISIKOMENTAR`,`TANGGALKOMENTAR`,`JAMKOMENTAR`,`IDPOST`,`USERNAME`)
                     VALUES      ('$comment','$date','$time',$id_post,'$username');
                 ";
-
-        
         $conn->query($query);
         return mysqli_affected_rows($conn); //Mengembalikan sebuah value 1 jika berhasil dan -1 jika tidak berhasil
     }
@@ -30,6 +28,8 @@
     {
         if( insert($_POST) > 0 )
         {
+            unset($_POST['i_komen']);
+            unset($_POST['comment_it']);
             // echo "<script>
             //             alert('Sukses!');
             //         </script>";

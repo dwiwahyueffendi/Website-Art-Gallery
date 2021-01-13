@@ -24,6 +24,8 @@
     {
         if( delete($_POST) > 0 )
         {
+            unset($_POST['id_comment']);
+            unset($_POST['delete_it']);
             // echo "<script>
             //             alert('Sukses!');
             //         </script>";

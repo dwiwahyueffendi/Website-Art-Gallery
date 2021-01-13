@@ -28,6 +28,9 @@
     {
         if( edit($_POST) > 0 )
         {
+            unset($_POST['edit_it']);
+            unset($_POST['id_comment']);
+            unset($_POST['e_komen']);
             // echo "<script>
             //             alert('Sukses!');
             //         </script>";

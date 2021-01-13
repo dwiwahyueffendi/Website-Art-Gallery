@@ -26,6 +26,8 @@
     {
         if( like($_POST) > 0 )
         {
+            unset($_POST['like']);
+            unset($_POST['like_it']);
             // echo "<script>
             //             alert('Sukses!');
             //         </script>";
