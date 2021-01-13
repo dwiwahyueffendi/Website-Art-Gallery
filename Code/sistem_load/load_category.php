@@ -8,7 +8,7 @@
 
 	$num_rows = mysqli_num_rows(mysqli_query($conn,$sqlCategory));		
 	####### Fetch Results From Table ########
-	$result = mysqli_query($conn,$sqlCategory;
+	$result = mysqli_query($conn,$sqlCategory);
 	while($row = mysqli_fetch_array($result)){
 	$mygambar=$row['GAMBAR'];
 ?>	

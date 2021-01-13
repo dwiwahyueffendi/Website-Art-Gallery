@@ -141,7 +141,7 @@
         </li>
 
         <li class="nav-item up">
-          <a href="#">
+          <a href="userArt.php">
             <img src="Image/icon/account.png" width="25">
           </a>
         </li>

@@ -29,7 +29,7 @@
                 $_SESSION['login'] = true;
 
                 //Melempar user ke halaman lain
-                header("Location: userArt.php");
+                header("Location: home.php");
                 exit;
             }
         }

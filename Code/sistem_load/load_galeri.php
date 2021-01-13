@@ -17,8 +17,9 @@
 			####### Fetch Results From Table ########
 			$result = mysqli_query($conn,$sqlPost);
 			while($row = mysqli_fetch_array($result)){
+      $id_post=$row['IDPOST'];
       $mygambar=$row['GAMBAR'];
 		?>	
-		<?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+		<?php	echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
 		<?php } ?>				
 		

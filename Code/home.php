@@ -125,7 +125,7 @@
 <!-- Navbar -->
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand baloo" href="#">Home</a>
+    <a class="navbar-brand baloo" href="home.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -140,13 +140,12 @@
         </li>
 
         <?php 
-            if(isset($_GET['cariTitle'])){
-                $cari = $_GET['cariTitle'];
-
-                $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";				
-            }else{
-                $sqlPost = "SELECT * FROM post ORDER BY IDKATEGORI DESC";	
-            }
+          if(isset($_GET['cariTitle'])){
+            $cari = $_GET['cariTitle'];
+              $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";				
+          }else{
+            $sqlPost = "SELECT * FROM post ORDER BY IDKATEGORI DESC";	
+          }
         ?>
 
         <li class="nav-item">

@@ -44,6 +44,7 @@
         font-size: 16px;
         padding: 0px;
         color: #000000!important;
+        text-decoration: none;
         margin-left: 15px;
       }
       body{
@@ -130,10 +131,20 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <form class="d-flex">
-            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search">
-            <button class="btn btn-outline-success lebar1 round balooBlack" type="submit">Search</button>
+            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search" name="cariTitle">
+            <button class="btn btn-outline-success lebar1 round balooBlack" type="submit" value="cariTitle">Search</button>
           </form>
         </li>
+
+        <?php 
+            if(isset($_GET['cariTitle'])){
+                $cari = $_GET['cariTitle'];
+
+                $sqlDropdown = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";				
+            }else{
+                $sqlDropdown = "SELECT * FROM post ORDER BY IDKATEGORI DESC";	
+            }
+        ?>
 
         <li class="nav-item">
           <div class="dropdown">
@@ -147,10 +158,11 @@
                   $id=$row_kat['IDKATEGORI'];
               ?>
                 <li>
-                  <a class="dropdown-item balooBlack1" href="sistem_load/load_category.php?categoryid=$id">
+                  <a class="dropdown-item">
                     <?php
                       //echo $row_kat["NAMAKATEGORI"];
-                      echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
+                      echo"<a class='balooBlack1' href='category.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
+                      //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
                       //$namaKategori = $_GET['NAMAKATEGORI'];
                       //$choiceCategory = 
                       //$sqlPost1 = "SELECT * FROM post WHERE IDKATEGORI = '$choiceCategory'";
@@ -198,10 +210,11 @@
 			$num_rows1 = mysqli_num_rows($sqlDropdown);		
 			####### Fetch Results From Table ########
 			while($row = mysqli_fetch_array($sqlDropdown)){
+      $id_post=$row['IDPOST'];
       $mygambar=$row['GAMBAR'];
   ?>	
     
-  <?php	echo "<a href='$mygambar' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
+  <?php	echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
   <?php } ?>	
 	</div>			
 </div>
