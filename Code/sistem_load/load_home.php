@@ -9,7 +9,8 @@
 				//echo"<a href='focus-layoutv2.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
 				$id_post=$row['IDPOST'];
 				$mygambar=$row['GAMBAR'];
-				echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img width=200 height=300 src='$mygambar' class='inline-block resizeImage'/></a> ";
+				echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img width=200 height=300 src='$mygambar' class='inline-block resizeImage'/></a> 
+					 ";
 			} 
 		}else{
 			echo "<h2>Kosong</h2>";

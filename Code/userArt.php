@@ -106,7 +106,7 @@
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: -50px;
-        border-radius: 0px;
+        border-radius: 20px;
         border: solid black 0px;
       }
 

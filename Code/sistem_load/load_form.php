@@ -18,7 +18,7 @@
     <br>
     <div class="form-group row">
         <div>
-            <label for="i_genre" class="balooBlack">Choose Your Genre</label>
+            <label for="i_genre" class="balooBlack">Choose Genre</label>
         </div>
         <div class="col-7">    
             <select class="form-control" id="" name="i_genre">

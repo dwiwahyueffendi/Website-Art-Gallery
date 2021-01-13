@@ -71,9 +71,16 @@
     {
         if( upload($_POST,$_FILES) > 0 )
         {
-            echo "<script>
-                        alert('Sukses!');
-                    </script>";
+            unset($_POST['i_title']);
+            unset($_POST['i_deskripsi']);
+            unset($_POST['i_genre']);
+            unset($_POST['post_it']);
+            unset($_FILES);
+            header('Location: userArt.php');
+            exit;
+            // echo "<script>
+            //             alert('Sukses!');
+            //         </script>";
         }
         else
         {
