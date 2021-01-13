@@ -20,7 +20,7 @@
         <?php 
           if(isset($_GET['cariTitle'])){
             $cari = $_GET['cariTitle'];
-              $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";
+              $sqlPost .= "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";
           }
         ?>
 

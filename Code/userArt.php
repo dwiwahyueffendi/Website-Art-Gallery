@@ -126,7 +126,7 @@
 
 <?php  
       include "conn.php";
-      $sqlPost = "SELECT * FROM post where USERNAME = '$id'";
+      $sqlPost = "SELECT * FROM post where USERNAME = '$id' ";
 ?>
 
 <!-- Navbar -->

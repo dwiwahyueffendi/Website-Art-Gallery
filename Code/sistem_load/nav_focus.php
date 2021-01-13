@@ -21,8 +21,8 @@
           if(isset($_GET['cariTitle'])){
             $cari = $_GET['cariTitle'];
               $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";
-          }else{
-            $sqlPost = "SELECT * FROM post ORDER BY IDKATEGORI DESC";	
+              header('Location: home.php');
+              exit;
           }
         ?>
 
@@ -39,20 +39,10 @@
                    $idCategory=$row_kat['IDKATEGORI'];
               ?>
                 <li>
-                <!--
-                <div class="dropdown-item balooBlack1">
-                  <?php
-                    //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
-                  ?>
-                  <?php
-                    //echo"<a href='category.php?categoryid=$idCategory'></a>"
-                  ?>
-                </div> -->
-
                   <div class="dropdown-item">
                     <?php
                       //echo $row_kat["NAMAKATEGORI"];
-                      echo"<a class='balooBlack1' href='category.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
+                      echo "<a class='balooBlack1' href='category.php?categoryid=".$idCategory."'>". $row_kat['NAMAKATEGORI']."</a>"
                       //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
                     ?>
                   </div>            

@@ -36,7 +36,7 @@
 <body class="bgFocus">
     <div>
       <?php
-          require('sistem_load/nav.php');
+          require('sistem_load/nav_focus.php');
       ?>
 
     </div>
