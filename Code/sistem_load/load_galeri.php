@@ -20,6 +20,11 @@
       $id_post=$row['IDPOST'];
       $mygambar=$row['GAMBAR'];
 		?>	
-		<?php	echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-		<?php } ?>				
-		
+    <div class="litebox resizeImage" style="display: inline-block;">
+      <a href='focus-layoutv2.php?postid=<?php echo $id_post;?>' target="_self" data-litebox-group='group-1' style="text-decoration: none;">
+        <img src='<?php echo $mygambar; ?>' class='resizeImage'/>
+      </a>
+      <a href="updatePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Edit</button></a>
+      <button type="button" class="btn btn-primary tombol">Delete</button>
+    </div>
+		<?php } ?>

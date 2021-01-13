@@ -11,6 +11,7 @@
 <head>
     <title>Art Gallery</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/r-style.css">
     <style>
       @font-face{
         font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
@@ -96,9 +97,20 @@
         width: 200px;
         margin-left: 5px;
         margin-right: 5px;
-        margin-bottom: 10px;
-        border-radius: 20px;
+        margin-bottom: -50px;
+        border-radius: 0px;
         border: solid black 0px;
+      }
+
+      /*CSS+ UserArt*/
+      .tombol
+      {
+        background-color: #31726E;
+        color: #FFF4B7;
+        font-family: Share Tech;
+        border: 0px;
+        border-radius: 0px;
+        margin-bottom: 70px;
       }
     </style>
 </head>
