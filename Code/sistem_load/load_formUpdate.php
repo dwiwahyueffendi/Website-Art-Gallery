@@ -29,8 +29,8 @@
             <label for="i_genre" class="balooBlack">Pilih Kategori</label>
         </div>
         <div class="col-7">    
-            <select class="form-control" id="" name="e_genre">
-            <option value="" required>Pilih kategori...</option>
+            <select class="form-control" id="" name="e_genre" required>
+            <option value="">Pilih kategori...</option>
                 <?php
                     $result = mysqli_query($conn, "SELECT * FROM kategori");
                     while($row_ins = mysqli_fetch_array($result)){

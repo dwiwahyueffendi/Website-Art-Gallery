@@ -24,7 +24,30 @@
       <a href='focus-layoutv2.php?postid=<?php echo $id_post;?>' target="_self" data-litebox-group='group-1' style="text-decoration: none;">
         <img src='<?php echo $mygambar; ?>' class='resizeImage'/>
       </a>
-      <a href="updatePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Edit</button></a>
-      <button type="button" class="btn btn-primary tombol">Delete</button>
+      <?php
+        if(isset($_REQUEST['username']))
+        {
+          if($id == $_SESSION['username'])
+          {
+      ?>
+            <a href="updatePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Edit</button></a>
+            <a href="deletePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Delete</button></a>
+      <?php
+          }
+          else
+          {
+      ?>
+            <style>
+              .tombol
+              {
+                visibility: hidden;
+              }
+            </style>
+            <a href="updatePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Edit</button></a>
+            <a href="deletePost.php?postid=<?php echo $id_post; ?>"><button type="button" class="btn btn-primary tombol">Delete</button></a>
+      <?php      
+          }
+        }
+      ?>
     </div>
 		<?php } ?>
