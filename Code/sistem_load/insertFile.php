@@ -76,8 +76,6 @@
             unset($_POST['i_genre']);
             unset($_POST['post_it']);
             unset($_FILES);
-            header('Location: userArt.php');
-            exit;
             // echo "<script>
             //             alert('Sukses!');
             //         </script>";

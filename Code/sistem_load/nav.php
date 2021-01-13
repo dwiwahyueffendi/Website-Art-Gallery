@@ -3,7 +3,7 @@
 ?>
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top" style="padding-left:20px">
   <div class="container-fluid">
-    <a class="navbar-brand baloo" href="home.php">Home</a>
+    <a class="navbar-brand baloo def_color" href="home.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

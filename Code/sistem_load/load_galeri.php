@@ -10,7 +10,7 @@
     <!--Image Databas -->
 		<?php  
       $num_rows = mysqli_num_rows(mysqli_query($conn,$sqlPost));
-      if($id == $_SESSION['username']){
+      
         ####### Fetch Results From Table ########
         $result = mysqli_query($conn,$sqlPost);
         while($row = mysqli_fetch_array($result)){
@@ -21,33 +21,19 @@
                   <a href='focus-layoutv2.php?postid=".$id_post."' target='_self' data-litebox-group='group-1' style='text-decoration: none;'>
                     <img src='".$mygambar."' class='resizeImage'/>
                   </a>
-                  <a href='updatePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Edit</button></a>
-                  <a href='deletePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Delete</button></a>
+              ";
+          if(strcmp($row['USERNAME'], $_SESSION['username'])==0){
+            echo"   
+                    <a href='updatePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Edit</button></a>
+                    <a href='deletePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Delete</button></a>
+                  </div>
+            ";
+          }else{
+            echo "
+                  <a style='visibility: hidden;' href='updatePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Edit</button></a>
+                  <a style='visibility: hidden;' href='deletePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Delete</button></a>
                 </div>
-          ";
+                ";
+          }
         }
-      }else{
-        ####### Fetch Results From Table ########
-        $result = mysqli_query($conn,$sqlPost);
-        while($row = mysqli_fetch_array($result)){
-          $id_post=$row['IDPOST'];
-          $mygambar=$row['GAMBAR'];
-          echo "
-                <style>
-                  .tombol
-                  {
-                    visibility: hidden;
-                  }
-                </style>
-                <div class='litebox resizeImage' style='display: inline-block;'>
-                  <a href='focus-layoutv2.php?postid=".$id_post."' target='_self' data-litebox-group='group-1' style='text-decoration: none;'>
-                    <img src='".$mygambar."' class='resizeImage'/>
-                  </a>
-                  <a href='updatePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Edit</button></a>
-                  <a href='deletePost.php?postid=".$id_post."'><button type='button' class='btn btn-primary tombol'>Delete</button></a>
-                </div>
-          ";
-        }
-      }
-
 		?>	

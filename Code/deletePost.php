@@ -20,19 +20,15 @@
         $num_rows = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM komentar WHERE IDPOST=$id_post"));
         if($num_rows != 0){
             mysqli_query($conn,"DELETE FROM komentar WHERE IDPOST=$id_post");
-        }
-        if(mysqli_affected_rows($conn) > 0){ //cek apa komentar berhasil dihapus
-            $query ="   DELETE 
-                        FROM post
-                        WHERE IDPOST = $id_post AND USERNAME = '$username';
-                    ";
-            $conn->query($query);
-            return mysqli_affected_rows($conn); //Mengembalikan sebuah value 1 jika berhasil dan -1 jika tidak berhasil
-        }else{
-            return false;
+            
         }
         
-        
+        $query ="   DELETE 
+                    FROM post
+                    WHERE IDPOST = $id_post AND USERNAME = '$username';
+                ";
+        $conn->query($query);
+        return mysqli_affected_rows($conn); //Mengembalikan sebuah value 1 jika berhasil dan -1 jika tidak berhasil          
     }
     if( isset($_REQUEST['postid']) )
     {

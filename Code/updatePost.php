@@ -18,10 +18,19 @@
         font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
       }
-      
+      #nav1{
+        margin-left: 0px;
+        background-color: #31726E;
+      }
     </style>
 </head>
 <body>
+
+<?php  
+      include "conn.php";
+?>
+
+<!-- NavBar -->
 <div>
       <?php
           require('sistem_load/nav.php');

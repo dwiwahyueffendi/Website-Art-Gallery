@@ -34,6 +34,6 @@
     </div>
     <br><br>
     <div class="col right">
-        <button type="submit" style="text-align:right" class="btn btn-primary fBaloo base-color" id="" name="post_it">Post it!</button>
+        <button type="submit" style="text-align:right" class="btn btn-primary fBaloo base-color" id="insert" name="post_it">Post it!</button>
     </div>
 </form>
