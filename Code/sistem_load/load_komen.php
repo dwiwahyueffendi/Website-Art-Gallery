@@ -41,7 +41,7 @@
                                 </div>
                                 <form class='col-1' method='POST'>
                                     <input type='hidden' value=". $row_komen['IDKOMENTAR'] ." name='id_comment'>
-                                    <button type='submit' style='font-size:12px;background-color:#FB9511' class='btn' id='delete". $row_komen['IDKOMENTAR'] ."' name='delete_it'>Delete</button>
+                                    <button type='submit' style='font-size:12px;background-color:#FB9511' class='btn' id='delete_it". $row_komen['IDKOMENTAR'] ."' name='delete_it'>Delete</button>
                                 </form>
                             </div>
 
@@ -57,7 +57,6 @@
                                     $('#e_form". $row_komen['IDKOMENTAR'] ."').hide();
                                     $('#par_komen". $row_komen['IDKOMENTAR'] ."').show();
                                     $('#open_edit". $row_komen['IDKOMENTAR'] ."').html('Edit');
-
                                 }
                                 });
                                 $('#edit_it". $row_komen['IDKOMENTAR'] ."').on('click',function(){
@@ -76,6 +75,19 @@
                                 }else{
                                     $('#edit_it". $row_komen['IDKOMENTAR'] ."').html('Edit');
                                 }
+                                });
+                                //delete
+                                $('#delete_it". $row_komen['IDKOMENTAR'] ."').on('click',function(){
+                                    $('#delete_it". $row_komen['IDKOMENTAR'] ."').html('Purging');
+                                    var id_post= ". $id_post .";
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'sistem_load/load_komen.php?postid=' + id_post,
+                                        success: function(msg){
+                                            $('#delete_it". $row_komen['IDKOMENTAR'] ."').html('Delete');
+                                            $('#load_comment". $row_komen['IDKOMENTAR'] ."').html(msg);
+                                        },
+                                    });
                                 });
                             </script>
                         </div>

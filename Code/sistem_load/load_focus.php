@@ -5,6 +5,7 @@
     require('insertComment.php');
     require('updateComment.php');
     require('deleteComment.php');
+    require('updateLike.php');
     // require('conn.php'); //opening connection
     $prep_query = " SELECT 
                         * 
@@ -60,6 +61,7 @@
                             style='max-height:504px;max-width:1008px'
                         >
                 </a>
+                
             ");
         ?>
     </div>
@@ -83,17 +85,20 @@
                         </div>
                     </div>
                     <div class='row roboto' style='padding-left:64px'>
-                        <div class='col-2'>
-                            <a href='#'>
-                                <div class='row'>
-                                    <div class='col-1 media-left'>
-                                        <img src='Image/icon/like.png' class='media-object' style='width:15px'>
+                        <div id='like' style='color:black;' class='col-2'>
+                            <form method='POST'>
+                                <button type='submit' style='background-color:transparent !important; border-color: transparent !important;font-size:12px;' class='btn' id='like_it' name='like_it'>
+                                    <div class='row'>
+                                        <div class='col-1 media-left'>
+                                            <img src='Image/icon/like.png' class='media-object' style='width:15px'>
+                                        </div>
+                                        <input type='hidden' value=". $like ." name='like'>
+                                        <div class='col media-body'>
+                                            <p>". $like ." like</p>
+                                        </div>
                                     </div>
-                                    <div class='col media-body'>
-                                        <p>like</p>
-                                    </div>
-                                </div>
-                            </a>
+                                </button>
+                            </form>
                         </div>
                         <div class='col-2'>
                             <div class='row'>
@@ -124,7 +129,7 @@
                     <form class='padding-large' method='POST'>
                         <div class='form-group'>
                             <label class='roboto' for='i_komen'><b>Comment</b></label>
-                            <textarea id='comment_area' name='i_komen' class='form-control' style='background-color: lightgrey!important;' rows='4' placeholder='Komentar Anda...'></textarea>
+                            <textarea id='comment_area' name='i_komen' class='form-control' style='background-color: lightgrey!important;' rows='4' placeholder='Insert Comment Here....'></textarea>
                         </div>
                         <br>
                         <div class='col right'>
@@ -143,17 +148,15 @@
     </div>
 </div>
 <script type="text/javascript">
-    
-
     $("#comment_it").on("click",function(){
       if($("#comment_area").val()!=""){
-        $("#process_insert").show();
+        $("#comment_it").html("Posting");
         var id_post= <?php echo ($id_post) ?>;
         $.ajax({
             type: "POST",
             url: "sistem_load/load_komen.php?postid=" + id_post,
             success: function(msg){
-                $("#process_insert").hide();
+                $("#comment_it").html("Post It");
                 $("#comment_area").val()="";
                 $("#load_comment").html(msg);
             },
