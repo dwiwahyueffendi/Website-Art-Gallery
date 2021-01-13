@@ -87,12 +87,12 @@
 <div class="container" style="margin-top:64px">
 	<div class="one-whole">       
       <!-- <hr style="border:solid black 4px;margin-top:0px;"> -->
-      <h1 class="padding-large text-center baloo" style="font-size:30px">Submit Your Art</h1>
+      <h1 class="padding-large text-center baloo" style="font-size:30px">Edit Your Posted Art</h1>
       <br>
       <p>
       <?php
-        require('sistem_load/load_form.php');
-        require('sistem_load/insertFile.php');
+        require('sistem_load/load_formUpdate.php');
+        require('sistem_load/update-post.php');
       ?>
 			</p>	
 	</div>		
