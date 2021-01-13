@@ -14,7 +14,7 @@
 <head>
     <title>Art Gallery</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <style> 
       @font-face{
         font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/

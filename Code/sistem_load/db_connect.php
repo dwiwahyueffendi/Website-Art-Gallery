@@ -3,7 +3,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "pkl";
+    $dbname = "artgallery";
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password);
