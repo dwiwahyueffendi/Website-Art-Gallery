@@ -76,7 +76,11 @@
                             <h4 class='media-heading'>
                                 ". $judul ."
                             </h4>
-                            <p>By ". $artist ."</p>
+                                <p>By 
+                                    <a style='color:black !important' href = 'userArt.php?username=". $artist ."'>
+                                        ". $artist ."
+                                    </a>
+                                </p>
                         </div>
                         <div class='col media-body right roboto'>
                             <h4 class='media-heading'> </h4>

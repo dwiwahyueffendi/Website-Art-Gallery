@@ -1,6 +1,9 @@
 <?php
   session_start();
   $id = $_SESSION['username'];
+  if(isset($_REQUEST['username'])){
+    $id=$_REQUEST['username'];
+  }
 ?>
 
 <!doctype html>

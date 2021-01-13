@@ -18,9 +18,11 @@
                     </div>
                     <div class='col media-body'>
                         <div class='row'>
-                            <h6 class='col-2 media-heading'>
-                                <b>". $row_komen['USERNAME'] ."</b>
-                            </h6>
+                            <a style='color:black !important' href = 'userArt.php?username=". $row_komen['USERNAME'] ."'>
+                                <h6 class='col-2 media-heading'>
+                                    <b>". $row_komen['USERNAME'] ."</b>
+                                </h6>
+                            </a>
                             <div class='col-1 media-body'>
                                 <p style='font-size:12px'>  ". $row_komen['TANGGALKOMENTAR'] ."</p>
                             </div>  
