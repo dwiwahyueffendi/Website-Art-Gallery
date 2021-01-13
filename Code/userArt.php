@@ -1,8 +1,11 @@
 <?php
   session_start();
   $id = $_SESSION['username'];
+
   if(isset($_REQUEST['username'])){
     $id=$_REQUEST['username'];
+  }else{
+    $id = $_SESSION['username'];
   }
 ?>
 
@@ -68,13 +71,18 @@
         height: 1600px;
         background-color: #FFFFFF;
       }
-
+      .insertBtn{
+        width: 50px;
+        float: right;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
       /*============================================*/
 
       .one-whole{
         width: 1100px;
         margin-left: 0px;
-        border: solid red 4px;
+        border: solid red 0px;
       }
 
       #username{
@@ -106,67 +114,28 @@
 
 <?php  
       include "conn.php";
-      $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
-      $sqlUsername = "SELECT * FROM akun where USERNAME = '$id'";
-			$sqlPost = "SELECT * FROM post where USERNAME = '$id'";
+      $sqlPost = "SELECT * FROM post where USERNAME = '$id'";
 ?>
 
 <!-- Navbar -->
-<nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand baloo" href="home.php">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <form class="d-flex">
-            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search">
-            <button class="btn btn-outline-success lebar1 round balooBlack" type="submit">Search</button>
-          </form>
-        </li>
-
-        <li class="nav-item">
-          <div class="dropdown">
-            <button class="btn btn-outline-success dropdown-toggle lebar1 round balooBlack" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <?php if(mysqli_num_rows($sqlCategory)) { ?>
-              <?php while($row_kat = mysqli_fetch_array($sqlCategory)) { ?>
-                <li><a class="dropdown-item balooBlack1" href="category.php"><?php echo $row_kat["NAMAKATEGORI"]; ?></a></li>
-              <?php } ?>
-              <?php } ?>
-            </ul>
-          </div>
-        </li>
-
-        <li class="nav-item up">
-          <a href="userArt.php">
-            <img src="Image/icon/account.png" width="25">
-          </a>
-        </li>
-
-        <li class="nav-item up">
-          <a href="logout.php">
-            <img src="Image/icon/logout.png" width="25">
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</nav>
-
+<div>
+      <?php
+          require('sistem_load/nav.php');
+      ?>
+</div>
+<!-- Button Insert -->
+<div class="fixed-bottom">
+  <a href="insert-layoutv2.php">
+    <img class="insertBtn" src="Image/icon/insertButton.png">
+  </a>
+</div>
 <!-- Body Container -->
 <br><br><br><br>
 <div class="container">
 	<div class="one-whole text-center">
   <?php
     require('sistem_load/load_galeri.php');
-  ?>	
+  ?>
 	</div>			
 </div>
     

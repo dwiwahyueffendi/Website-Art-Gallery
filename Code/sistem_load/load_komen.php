@@ -14,7 +14,7 @@
             <div class='roboto padding'>
                 <div class='row'>
                     <div class='col-1 media-left'>
-                        <img src='Image/icon/account.png' class='media-object' style='width:36px'>
+                        <img src='Image/icon/accountblack.png' class='media-object' style='width:36px'>
                     </div>
                     <div class='col media-body'>
                         <div class='row'>
@@ -39,11 +39,11 @@
                             <p id='par_komen". $row_komen['IDKOMENTAR'] ."'>". $row_komen['ISIKOMENTAR'] ."</p> 
                             <div class='row'>
                                 <div class='col-2' >
-                                    <button type='submit' style='font-size:12px;background-color:#99EEFF' class='btn' id='open_edit". $row_komen['IDKOMENTAR'] ."' name='edit_it'>Edit</button>
+                                    <button type='submit' style='font-size:12px;background-color:transparent' class='btn' id='open_edit". $row_komen['IDKOMENTAR'] ."' name='edit_it'>Edit</button>
                                 </div>
                                 <form class='col-1' method='POST'>
                                     <input type='hidden' value=". $row_komen['IDKOMENTAR'] ." name='id_comment'>
-                                    <button type='submit' style='font-size:12px;background-color:#FB9511' class='btn' id='delete_it". $row_komen['IDKOMENTAR'] ."' name='delete_it'>Delete</button>
+                                    <button type='submit' style='font-size:12px;background-color:transparent' class='btn' id='delete_it". $row_komen['IDKOMENTAR'] ."' name='delete_it'>Delete</button>
                                 </form>
                             </div>
 

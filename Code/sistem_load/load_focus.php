@@ -70,7 +70,7 @@
             echo("
                     <div class='row roboto'>
                         <div class='col-1 media-left'>
-                            <img src='Image/icon/account.png' class='media-object' style='width:60px'>
+                            <img src='Image/icon/accountblack.png' class='media-object' style='width:60px'>
                         </div>
                         <div class='col media-body'>
                             <h4 class='media-heading'>

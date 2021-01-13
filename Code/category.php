@@ -1,12 +1,9 @@
 <?php
-  include "conn.php";
-  $idCategory=$_REQUEST['categoryid'];
-  /*if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-      if (isset($_GET['NAMAKATEGORI'])) {
-          $choiceCategory = $_GET['NAMAKATEGORI'];
-          $sqlCategory = "SELECT * FROM post WHERE NAMAKATEGORI = '$choiceCategory'";
-      }
-  }*/
+  session_start();
+
+  //Cek apakah user sudah login atau belum
+  $idCategory = $_REQUEST['category'];
+  $user = $_SESSION['username'];
 ?>
 
 <!doctype html>
@@ -14,7 +11,7 @@
 <head>
     <title>Art Gallery</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <style> 
+    <style>
       @font-face{
         font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
@@ -42,9 +39,10 @@
       .balooBlack1{
         font-family: Baloo;
         font-size: 16px;
+        font-color: #000000;
         padding: 0px;
         color: #000000!important;
-        text-decoration: none;
+        text-decoration:none;
         margin-left: 15px;
       }
       body{
@@ -85,7 +83,7 @@
       .one-whole{
         width: 1100px;
         margin-left: 0px;
-        border: solid red 4px;
+        /* border: solid red 4px; */
       }
 
       #username{
@@ -103,8 +101,8 @@
       }
 
       .resizeImage{
-        height: 300px;
-        width: 200px;
+        /* height: 300px;
+        width: 200px; */
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: 10px;
@@ -116,81 +114,16 @@
 <body>
 
 <?php  
-  $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
+      include "conn.php";
+			$sqlCat = "SELECT * FROM post WHERE IDKATEGORI = $idCategory";
 ?>
 
 <!-- Navbar -->
-<nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand baloo" href="home.php">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <form class="d-flex">
-            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search" name="cariTitle">
-            <button class="btn btn-outline-success lebar1 round balooBlack" type="submit" value="cariTitle">Search</button>
-          </form>
-        </li>
-
-        <?php 
-            if(isset($_GET['cariTitle'])){
-                $cari = $_GET['cariTitle'];
-
-                $sqlDropdown = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";				
-            }else{
-                $sqlDropdown = "SELECT * FROM post ORDER BY IDKATEGORI DESC";	
-            }
-        ?>
-
-        <li class="nav-item">
-          <div class="dropdown">
-            <button class="btn btn-outline-success dropdown-toggle lebar1 round balooBlack" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <?php if(mysqli_num_rows($sqlCategory)) { ?>
-              <?php
-                while($row_kat = mysqli_fetch_array($sqlCategory)) {
-                  $id=$row_kat['IDKATEGORI'];
-              ?>
-                <li>
-                  <a class="dropdown-item">
-                    <?php
-                      //echo $row_kat["NAMAKATEGORI"];
-                      echo"<a class='balooBlack1' href='category.php?categoryid=$idCategory'>". $row_kat['NAMAKATEGORI']."</a>"
-                      //echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
-                      //$namaKategori = $_GET['NAMAKATEGORI'];
-                      //$choiceCategory = 
-                      //$sqlPost1 = "SELECT * FROM post WHERE IDKATEGORI = '$choiceCategory'";
-                    ?>
-                  </a>
-                </li>
-              <?php } ?>
-              <?php } ?>
-            </ul>
-          </div>
-        </li>
-
-        <li class="nav-item up">
-          <a href="userArt.php">
-            <img src="Image/icon/account.png" width="25">
-          </a>
-        </li>
-
-        <li class="nav-item up">
-          <a href="logout.php">
-            <img src="Image/icon/logout.png" width="25">
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</nav>
+<div>
+  <?php
+      require('sistem_load/nav.php');
+  ?>
+</div>
 
 <!-- Button Insert -->
 <div class="fixed-bottom">
@@ -204,21 +137,12 @@
 <div class="container">
 	<div class="one-whole text-center">
   <?php
-      $sqlDropdown = mysqli_query($conn, "SELECT * FROM post WHERE IDKATEGORI = '$idCategory'");
-
-      global $conn;
-			$num_rows1 = mysqli_num_rows($sqlDropdown);		
-			####### Fetch Results From Table ########
-			while($row = mysqli_fetch_array($sqlDropdown)){
-      $id_post=$row['IDPOST'];
-      $mygambar=$row['GAMBAR'];
+    require('sistem_load/load_category.php');
   ?>	
-    
-  <?php	echo "<a href='focus-layoutv2.php?postid=$id_post' target='_self' class='inline-block litebox' data-litebox-group='group-1'><img src='$mygambar' class='inline-block resizeImage'/></a> ";?>			
-  <?php } ?>	
 	</div>			
 </div>
-    
+  
+<script src="bootstrap/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

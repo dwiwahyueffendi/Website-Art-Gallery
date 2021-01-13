@@ -65,28 +65,6 @@
         $conn->query($query);
         //jika berhasil insert ke dalam query maka pindah file ke lokal direktori
         move_uploaded_file($tmpDir,$fileDir);
-
-        // /*======================creating thumbnail===========================*/
-        // //get New Size
-        // $newwidth = 200;
-        // $newheight = 300;
-        // // Load
-        // $source = imagecreatefromjpeg($fileDir);
-        // // Resize
-        // $thumb = imagecrop($source, ['x' => 0, 'y' => 0, 'width' => $newwidth, 'height' => $newheight]); 
-        // if ($thumb !== FALSE) { 
-        //     //saving to new directory
-        //     imagejpeg($thumb,$thumbDir);
-        //     imagedestroy($thumb); 
-        // } else{
-        //     echo "<script>
-        //             alert('Galat Membuat Thumbnail Otomatis');
-        //           </script>";
-        //     return false;
-        // }
-
-        
-
         return mysqli_affected_rows($conn); //Mengembalikan sebuah value 1 jika berhasil dan -1 jika tidak berhasil
     }
     if( isset($_POST['post_it']) )

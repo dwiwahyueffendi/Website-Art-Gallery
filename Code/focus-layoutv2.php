@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require('conn.php');
 ?>
 <!doctype html>
 <html>
@@ -16,58 +17,29 @@
         font-family: 'Baloo'; /*memberikan nama bebas untuk font*/
         src: url('Font/Baloo/Baloo.ttf');/*memanggil file font eksternalnya di folder Baloo*/
       }
+      #nav1{
+        margin-left: 0px;
+        background-color: #31726E;
+      }
+      .container-fluid{
+        margin-left:150px;
+      }
+      .baloo{
+        font-family: Baloo;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 0px;
+        color: #FFF6C4!important;
+      }
     </style>
 </head>
 <body class="bgFocus">
-    <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand baloo def_color" href="home.php">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div>
+      <?php
+          require('sistem_load/nav.php');
+      ?>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <form class="d-flex">
-                <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search">
-                <button class="btn btn-outline-success lebar1 round balooBlack" type="submit">Search</button>
-              </form>
-            </li>
-
-            <li class="nav-item">
-              <div class="dropdown">
-                <button class="btn btn-outline-success dropdown-toggle lebar1 round balooBlack" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                  Filter
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <?php
-                    require('sistem_load/conn.php');
-                    $result = mysqli_query($conn, "SELECT * FROM kategori");
-                    while($row_nav = mysqli_fetch_array($result)){
-                        // echo "<option value=". $row_kat['IDKATEGORI'] .">". $row_kat['NAMAKATEGORI'] ."</option>";
-                        echo "<li><a class='dropdown-item balooBlack1' href='userArt.php?search=". $row_nav['IDKATEGORI'] ."'>". $row_nav['NAMAKATEGORI'] ."</a></li>";
-                    }
-                  ?>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item up">
-              <a href="userArt.php">
-                <img src="Image/icon/account.png" width="25">
-              </a>
-            </li>
-
-            <li class="nav-item up">
-              <a href="logout.php">
-                <img src="Image/icon/logout.png" width="25">
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    </div>
 
 <!-- ************************* -->
     <div class="" style="margin-top:36px">

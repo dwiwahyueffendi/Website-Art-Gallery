@@ -15,7 +15,7 @@
         //prepare the query
         $query ="   UPDATE post
                     SET `JUMLAHLIKE` = $jml_like
-                    WHERE IDPOST=$id_post AND USERNAME = '$username' ;
+                    WHERE IDPOST=$id_post;
                 ";
 
         
