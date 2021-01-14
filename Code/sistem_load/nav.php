@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
 ?>
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top" style="padding-left:20px">
