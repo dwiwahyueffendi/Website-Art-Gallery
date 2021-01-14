@@ -136,9 +136,9 @@
       ?>
 </div>
 <!-- Button Insert -->
-<div class="fixed-bottom">
+<div class="fixed-bottom" style="pointer-events: none;">
   <a href="insert-layoutv2.php">
-    <img class="insertBtn" src="Image/icon/insertButton.png">
+    <img class="insertBtn" src="Image/icon/insertButton.png" style="pointer-events: visible;">
   </a>
 </div>
 <!-- Body Container -->
