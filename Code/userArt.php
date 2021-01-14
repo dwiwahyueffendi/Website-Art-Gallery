@@ -39,6 +39,7 @@
         font-size: 20px;
         padding: 0px;
         color: #000000!important;
+        text-decoration: none;
       }
       .balooBlack1{
         font-family: Baloo;
@@ -46,6 +47,7 @@
         padding: 0px;
         color: #000000!important;
         margin-left: 15px;
+        text-decoration: none;
       }
       body{
         background-color: #FFFFFF;
@@ -84,6 +86,7 @@
         width: 1100px;
         margin-left: 0px;
         border: solid red 0px;
+        margin-bottom: 100px;
       }
 
       #username{
@@ -136,9 +139,9 @@
       ?>
 </div>
 <!-- Button Insert -->
-<div class="fixed-bottom" style="pointer-events: none;">
+<div class="fixed-bottom">
   <a href="insert-layoutv2.php">
-    <img class="insertBtn" src="Image/icon/insertButton.png" style="pointer-events: visible;">
+    <img class="insertBtn" src="Image/icon/insertButton.png">
   </a>
 </div>
 <!-- Body Container -->

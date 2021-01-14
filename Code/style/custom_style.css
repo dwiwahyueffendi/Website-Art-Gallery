@@ -3,7 +3,7 @@
     background-color: #31726E;
   }
   input::-webkit-input-placeholder {
-    color: red !important;
+    color: black !important;
   }
   .container-fluid{
     margin-left:150px;

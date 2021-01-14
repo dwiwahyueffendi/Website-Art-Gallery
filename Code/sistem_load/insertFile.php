@@ -76,9 +76,6 @@
             unset($_POST['i_genre']);
             unset($_POST['post_it']);
             unset($_FILES);
-            // echo "<script>
-            //             alert('Sukses!');
-            //         </script>";
         }
         else
         {

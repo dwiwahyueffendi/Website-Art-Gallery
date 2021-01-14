@@ -1,5 +1,4 @@
 <?php
-    ob_start();
     $sqlCategory = mysqli_query($conn, "SELECT * FROM kategori ORDER BY NAMAKATEGORI ASC");
 ?>
 <nav id="nav1" class="navbar navbar-expand-lg navbar-light fixed-top" style="padding-left:20px">
@@ -13,7 +12,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <form class="d-flex">
-            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search" name="cariTitle">
+            <input class="form-control me-2 lebar round balooBlack" type="search" placeholder="  Search..." aria-label="Search" name="cariTitle" style="color: black">
             <button class="btn btn-outline-success lebar1 round balooBlack" type="submit" value="cariTitle">Search</button>
           </form>
         </li>
