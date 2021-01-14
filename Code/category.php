@@ -2,7 +2,7 @@
   session_start();
 
   //Cek apakah user sudah login atau belum
-  $idCategory = $_REQUEST['category'];
+  $idCategory = $_REQUEST['categoryid'];
   $user = $_SESSION['username'];
 ?>
 
@@ -115,7 +115,7 @@
 
 <?php  
       include "conn.php";
-			$sqlCat = "SELECT * FROM post WHERE IDKATEGORI = $idCategory";
+			$sqlPost = "SELECT * FROM post WHERE IDKATEGORI = $idCategory";
 ?>
 
 <!-- Navbar -->

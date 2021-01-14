@@ -20,7 +20,7 @@
         <?php 
           if(isset($_GET['cariTitle'])){
             $cari = $_GET['cariTitle'];
-              $sqlPost .= "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";
+              $sqlPost = "SELECT * FROM post WHERE TITLE LIKE '%".$cari."%' OR DESKRIPSI LIKE '%".$cari."%'";
           }
         ?>
 
@@ -39,7 +39,7 @@
                 <li>
                   <div class="dropdown-item">
                     <?php
-                      echo"<a class='balooBlack1' href='category.php?category=".$id_kat."'>". $row_kat['NAMAKATEGORI']."</a>"
+                      echo"<a class='balooBlack1' href='category.php?categoryid=".$id_kat."'>". $row_kat['NAMAKATEGORI']."</a>"
                     ?>
                   </div>            
                 </li>
