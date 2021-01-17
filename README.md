@@ -1,6 +1,13 @@
-<h1><b>Info Repo</b></h1>
+<h1><b>Final Project Pemrograman Website A</b></h1>
 <ul>
-  <li>Sebelum ngepush repo tolong di cek apakah ada pull terbaru (jangan di merge force / ben gk ilang progress e koncone)</li>
-  <li>Setiap progress usahakan di push rek</li>
-  <li>Usahakan pakek bootstrap</li>
+  <h2><b>Fitur  Website Art Gallery</b></h2>
+  <li>Login</li>
+  <li>Logout</li>
+  <li>Searching</li>
+  <li>Filtering</li>
+  <li>Update</li>
+  <li>Delete</li>
+  <li>Like</li>
+  <li>Komen</li>
+  <li>Log Out</li>
 </ul>
